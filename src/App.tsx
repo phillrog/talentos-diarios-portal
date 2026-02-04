@@ -1,23 +1,57 @@
-import React from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
+import { candidatoService } from './services/candidatoService';
+import type { Candidato } from './types/candidato';
+import LightRays from './components/reactbits/lightray';
+import { Cabecalho } from './components/layout/cabecalho';
+import { Lista } from './components/layout/lista';
+import { PesquisaCandidato } from './components/layout/pesquisa';
+
 
 function App() {
-  return (
-    <div className="min-h-screen bg-[#0f172a] flex items-center justify-center p-4">
-      {/* Card de Teste com Tailwind v4 */}
-      <div className="max-w-md w-full bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 shadow-2xl text-center">
-        <div className="w-20 h-20 bg-gradient-to-tr from-blue-500 to-emerald-400 rounded-full mx-auto mb-6 shadow-[0_0_30px_rgba(59,130,246,0.5)] animate-pulse" />
-        
-        <h1 className="text-3xl font-extrabold text-white mb-2 tracking-tight">
-          Tailwind <span className="text-blue-400">Ativo!</span>
-        </h1>
-        
-        <p className="text-slate-400 mb-6">
-          
-        </p>
+  const [candidatos, setCandidatos] = useState<Candidato[]>([]);
+  const [carregando, setCarregando] = useState(true);
+  const [busca, setBusca] = useState("");
+  const [scrolled, setScrolled] = useState(false);
 
-        <button className="w-full py-3 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all active:scale-95 shadow-lg shadow-blue-500/20">
-          Confirmar e Prosseguir
-        </button>
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    candidatoService.buscarTodos()
+      .then(setCandidatos)
+      .finally(() => setCarregando(false));
+  }, []);
+
+  const candidatosFiltrados = useMemo(() => {
+    const termo = busca.toLowerCase();
+    return candidatos.filter(c => 
+      c.nome.toLowerCase().includes(termo) || 
+      c.cargo.toLowerCase().includes(termo)
+    );
+  }, [busca, candidatos]);
+
+  return (
+    <div className="relative min-h-screen bg-[#020617] text-slate-100 font-sans selection:bg-blue-500/30 overflow-x-hidden">
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <LightRays
+          raysOrigin="top-center"
+          raysColor="#3b82f6"
+          className="opacity-90"
+          pulsating={true}
+          saturation={2}
+        />
+      </div>
+
+      <div className="relative z-10">
+        <Cabecalho scrolled={scrolled} />
+        
+        <main className="max-w-7xl mx-auto px-6 pt-48 pb-24">
+          <PesquisaCandidato busca={busca} setBusca={setBusca} />
+          <Lista candidatos={candidatosFiltrados} carregando={carregando} />
+        </main>
       </div>
     </div>
   );
