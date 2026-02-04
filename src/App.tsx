@@ -49,7 +49,27 @@ function App() {
 
   useEffect(() => {
     OneSignal.init({
-      appId: "66267c67-6b67-4742-a72d-25c884d2fe17",
+      appId: import.meta.env.VITE_ONESIGNAL_APP_ID,
+      allowLocalhostAsSecureOrigin: true,
+      promptOptions: {
+        slidedown: {
+          prompts: [
+            {
+              type: "push",
+              autoPrompt: true,
+              text: {
+                actionMessage: "Deseja receber alertas em tempo real quando novos talentos #OpenToWork aparecerem?",
+                acceptButton: "Sim, me avisar",
+                cancelButton: "Agora não",
+              },
+              delay: {
+                pageViews: 1, // Mostra após a primeira visualização
+                timeDelay: 20, // Espera 20 segundos para não ser invasivo
+              },
+            },
+          ],
+        },
+      },
     }).then(() => {
       OneSignal.Debug.setLogLevel("trace");
     });
