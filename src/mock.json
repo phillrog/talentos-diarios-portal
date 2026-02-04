@@ -1,0 +1,44 @@
+[
+    {
+      "id": 1,
+      "nome": "Alessandro Silva",
+      "cargo": "Senior Fullstack Developer (.NET & React)",
+      "foto": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
+      "perfil_url": "https://linkedin.com/in/exemplo1"
+    },
+    {
+      "id": 2,
+      "nome": "Beatriz Santos",
+      "cargo": "Especialista UX/UI & Product Design",
+      "foto": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
+      "perfil_url": "https://linkedin.com/in/exemplo2"
+    },
+    {
+      "id": 3,
+      "nome": "Carlos Eduardo",
+      "cargo": "DevOps Engineer | AWS | Kubernetes",
+      "foto": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
+      "perfil_url": "https://linkedin.com/in/exemplo3"
+    },
+    {
+      "id": 4,
+      "nome": "Daniela Oliveira",
+      "cargo": "Backend Developer Node.js | TypeScript",
+      "foto": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
+      "perfil_url": "https://linkedin.com/in/exemplo4"
+    },
+    {
+      "id": 5,
+      "nome": "Enzo Ferreira",
+      "cargo": "Mobile Developer (React Native & Flutter)",
+      "foto": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+      "perfil_url": "https://linkedin.com/in/exemplo5"
+    },
+    {
+      "id": 6,
+      "nome": "Fernanda Lima",
+      "cargo": "Data Scientist | Python | Machine Learning",
+      "foto": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop",
+      "perfil_url": "https://linkedin.com/in/exemplo6"
+    }
+  ]

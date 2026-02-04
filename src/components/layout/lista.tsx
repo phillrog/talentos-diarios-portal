@@ -18,13 +18,21 @@ export const Lista = ({ candidatos, carregando }: ListaProps) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
       {candidatos.map((c, i) => (
-        <div key={i} className="group relative bg-slate-900/40 backdrop-blur-md border border-slate-800 rounded-[3rem] p-10 hover:bg-slate-900 hover:border-blue-500/50 transition-all hover:-translate-y-2">
+        <div key={i} className="group relative bg-slate-900/40 backdrop-blur-md border border-slate-800 rounded-[3rem] px-10 py-5 hover:bg-slate-900 hover:border-blue-500/50 transition-all hover:-translate-y-2">
           <div className="flex flex-col h-full">
             <div className="flex items-center gap-6 mb-10">
               <img src={c.foto} className="w-24 h-24 rounded-[2rem] object-cover grayscale group-hover:grayscale-0 transition-all border border-white/5" alt={c.nome} />
               <div>
                 <h3 className="text-2xl font-black text-white">{c.nome}</h3>
-                <span className="text-emerald-400 text-[10px] font-black uppercase tracking-widest">● Open to Work</span>
+                <div className="flex items-center gap-2 mt-3">
+                    <span className="relative flex h-2.5 w-2.5">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                    </span>
+                    <span className="text-emerald-500 text-[10px] font-black uppercase tracking-widest">
+                    Início imediato
+                    </span>
+                </div>
               </div>
             </div>
             <p className="text-slate-400 text-xl font-medium mb-12 flex-grow line-clamp-3 italic">"{c.cargo}"</p>
