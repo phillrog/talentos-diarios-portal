@@ -1,4 +1,3 @@
-import React from "react";
 import type { Candidato } from "../../types/candidato";
 import LogoLoop from "./logoloop";
 

@@ -5,11 +5,7 @@ import * as THREE from 'three'
 function Lines({ count = 40, colors = ['#3b82f6', '#1e40af', '#60a5fa'] }) {
   const lines = useMemo(() => {
     return Array.from({ length: count }, () => {
-      const pos = new THREE.Vector3(
-        (Math.random() - 0.5) * 10,
-        (Math.random() - 0.5) * 10,
-        (Math.random() - 0.5) * 10
-      )
+      
       const points = []
       for (let i = 0; i < 20; i++) {
         points.push(new THREE.Vector3(i * 0.5, Math.sin(i * 0.3) * 0.5, Math.cos(i * 0.3) * 0.5))
