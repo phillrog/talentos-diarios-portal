@@ -1,6 +1,7 @@
 import { useEffect, useState, useMemo, useRef } from "react";
 import { candidatoService } from "./services/candidatoService";
 import type { Candidato } from "./types/candidato";
+import OneSignal from "react-onesignal";
 
 // Componentes
 import LightRays from "./components/reactbits/lightray";
@@ -44,6 +45,14 @@ function App() {
       .buscarTodos()
       .then(setCandidatos)
       .finally(() => setCarregando(false));
+  }, []);
+
+  useEffect(() => {
+    OneSignal.init({
+      appId: "66267c67-6b67-4742-a72d-25c884d2fe17",
+    }).then(() => {
+      OneSignal.Debug.setLogLevel("trace");
+    });
   }, []);
 
   const candidatosFiltrados = useMemo(() => {
