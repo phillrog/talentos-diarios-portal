@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo, useRef } from "react";
+import { useEffect, useState, useMemo, useRef } from "react";
 import { candidatoService } from "./services/candidatoService";
 import type { Candidato } from "./types/candidato";
 
