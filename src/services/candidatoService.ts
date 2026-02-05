@@ -1,6 +1,4 @@
 import type { Candidato } from "../types/candidato";
-
-
 import mockDados from "../mock.json";
 
 const JSON_URL = "https://raw.githubusercontent.com/phillrog/talentos-diarios/refs/heads/main/src/static/candidatos.json";
@@ -8,23 +6,33 @@ const PDF_URL = "https://github.com/phillrog/talentos-diarios/raw/main/src/stati
 
 const isMockEnabled = import.meta.env.VITE_USE_MOCK_CANDIDATOS === "true";
 
+const embaralharLista = (lista: Candidato[]): Candidato[] => {
+  const novaLista = [...lista];
+  for (let i = novaLista.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [novaLista[i], novaLista[j]] = [novaLista[j], novaLista[i]];
+  }
+  return novaLista;
+};
+
 export const candidatoService = {
   async buscarTodos(): Promise<Candidato[]> {
+    let candidatos: Candidato[] = [];
 
     if (isMockEnabled) {
-      const dadosLocais = (mockDados as unknown) as Candidato[];
-      console.log("Usando dados mock:", dadosLocais.length, "candidatos");
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve(dadosLocais);
-        }, 500);
-      });
+      candidatos = (mockDados as unknown) as Candidato[];
+      console.log("Usando dados mock:", candidatos.length, "candidatos");
+      
+      // Simulação de delay para o mock
+      await new Promise(resolve => setTimeout(resolve, 500));
+    } else {
+      const resposta = await fetch(JSON_URL);
+      if (!resposta.ok) throw new Error("Erro ao carregar candidatos");
+      const dados = await resposta.json();
+      candidatos = dados.filter((c: Candidato) => c.ativo);
     }
 
-    const resposta = await fetch(JSON_URL);
-    if (!resposta.ok) throw new Error("Erro ao carregar candidatos");
-    const dados = await resposta.json();
-    return dados.filter((c: Candidato) => c.ativo);
+    return embaralharLista(candidatos);
   },
 
   baixarPdf(): void {

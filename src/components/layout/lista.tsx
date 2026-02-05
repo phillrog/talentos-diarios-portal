@@ -1,6 +1,5 @@
 import type { Candidato } from "../../types/candidato";
 
-
 interface ListaProps {
   candidatos: Candidato[];
   carregando: boolean;
@@ -11,6 +10,22 @@ export const Lista = ({ candidatos, carregando }: ListaProps) => {
     return (
       <div className="flex justify-center py-40">
         <div className="w-12 h-12 border-t-4 border-blue-500 rounded-full animate-spin"></div>
+      </div>
+    );
+  }
+
+  // Tratamento para lista vazia
+  if (!candidatos || candidatos.length === 0) {
+    return (
+      <div className="flex flex-col items-center justify-center py-20 px-6 text-center bg-slate-900/20 border border-dashed border-slate-800 rounded-[3rem]">
+        <div className="text-6xl mb-6">🔍</div>
+        <h3 className="text-2xl font-black text-white mb-2">
+          Nenhum talento encontrado
+        </h3>
+        <p className="text-slate-400 max-w-md italic">
+          No momento não temos candidatos ativos com este critério. 
+          Tente limpar os filtros ou volte mais tarde!
+        </p>
       </div>
     );
   }

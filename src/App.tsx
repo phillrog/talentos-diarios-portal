@@ -77,7 +77,7 @@ function App() {
       <Cabecalho scrolled={scrolled} />
 
       <section className="relative z-10 h-screen w-full flex flex-col justify-center items-center snap-start snap-always">
-        <div className="w-full">
+        <div style={{ touchAction: 'pan-y' }} className="w-full">
           {!carregando && (
             <CarrosselCandidatos
               candidatos={candidatos}
@@ -99,9 +99,9 @@ function App() {
           <h2 className="text-6xl md:text-[100px] font-black tracking-tighter text-white leading-[0.9] mb-8">
             Contrate agora.
           </h2>
-          <p className="text-xl md:text-3xl lg:text-4xl font-medium text-slate-400 max-w-none whitespace-nowrap">
+          <p className="text-xl md:text-3xl lg:text-4xl font-medium text-slate-400 max-w-full md:max-w-none whitespace-normal md:whitespace-nowrap leading-tight">
             Início imediato. Acesso direto aos talentos{" "}
-            <span className="text-emerald-500 font-black italic underline decoration-blue-500/30 underline-offset-8">
+            <span className="text-emerald-500 font-black italic underline decoration-blue-500/30 underline-offset-8 inline-block md:inline">
               #OpenToWork
             </span>.
           </p>
