@@ -15,6 +15,16 @@ const embaralharLista = (lista: Candidato[]): Candidato[] => {
   return novaLista;
 };
 
+const formatarUrl = (url: string): string => {
+  if (!url) return "";
+  const link = url.trim();
+  // Verifica se já começa com http:// ou https://
+  if (/^https?:\/\//i.test(link)) {
+    return link;
+  }
+  return `https://${link}`;
+};
+
 export const candidatoService = {
   async buscarTodos(): Promise<Candidato[]> {
     let candidatos: Candidato[] = [];
@@ -32,10 +42,16 @@ export const candidatoService = {
       candidatos = dados.filter((c: Candidato) => c.ativo);
     }
 
-    return embaralharLista(candidatos);
+    const candidatosFormatados = candidatos.map(c => ({
+      ...c,
+      perfil_url: formatarUrl(c.perfil_url)
+    }));
+    
+    return embaralharLista(candidatosFormatados);
   },
 
   baixarPdf(): void {
     window.open(PDF_URL, '_blank');
   }
+  
 };
