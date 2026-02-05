@@ -3,7 +3,7 @@
 
 <img width="1887" height="957" alt="image" src="https://github.com/user-attachments/assets/916a5ae2-efd8-48d4-849c-bb0b3f89da07" />
 
-Uma plataforma de talentos **#OpenToWork**, projetada para recrutadores identificarem candidatos qualificados disponíveis no mercado. O portal é atualizado diariamente via automação, conforme cadastro feito pelos candidatos em [https://talentos-diarios.streamlit.app/](Registro de candidato).
+Uma plataforma de talentos **#OpenToWork**, projetada para recrutadores identificarem candidatos qualificados disponíveis no mercado. O portal é atualizado diariamente via automação, conforme cadastro feito pelos candidatos em [Registro de candidato](https://talentos-diarios.streamlit.app/).
 
 📋 O que o projeto faz?
 -----------------------
