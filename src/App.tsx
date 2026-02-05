@@ -138,6 +138,11 @@ function App() {
             <p className="text-[10px] font-black uppercase tracking-[0.5em]">
               Talentos Diários • 2026
             </p>
+            <p className="text-[10px] font-black uppercase tracking-[0.5em]">
+            <b>💡 Disclaimer:</b> Este projeto é uma iniciativa de estudo e portfólio. 
+                    O cadastro e a exibição na vitrine visam complementar sua visibilidade, 
+                    não garantindo contratações ou propostas.
+            </p>
           </footer>
         </div>
       </section>
