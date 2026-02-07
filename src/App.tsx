@@ -4,7 +4,6 @@ import type { Candidato } from "./types/candidato";
 import OneSignal from "react-onesignal";
 
 // Componentes
-import LightRays from "./components/reactbits/lightray";
 import { Cabecalho } from "./components/layout/cabecalho";
 import { Lista } from "./components/layout/lista";
 import { PesquisaCandidato } from "./components/layout/pesquisa";
@@ -51,8 +50,6 @@ function App() {
     OneSignal.init({
       appId: import.meta.env.VITE_ONESIGNAL_APP_ID,
       allowLocalhostAsSecureOrigin: true,      
-    }).then(() => {
-      OneSignal.Debug.setLogLevel("trace");
     });
   }, []);
 
@@ -68,15 +65,12 @@ function App() {
   return (
     <div
       id="main-container"
-      className="h-screen w-full overflow-y-auto overflow-x-hidden snap-y snap-mandatory bg-[#020617] text-slate-100 scroll-smooth"
-    >
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        <LightRays raysColor="#3b82f6" className="opacity-70" pulsating />
-      </div>
-
+      className="h-screen w-full overflow-y-auto overflow-x-hidden snap-y snap-mandatory bg-slate-50 text-slate-900 scroll-smooth"
+    >      
+      
       <Cabecalho scrolled={scrolled} />
 
-      <section className="relative z-10 h-screen w-full flex flex-col justify-center items-center snap-start snap-always">
+      <section className="relative z-10 h-screen w-full flex flex-col justify-center items-center snap-start snap-always bg-white">
         <div style={{ touchAction: 'pan-y' }} className="w-full">
           {!carregando && (
             <CarrosselCandidatos
@@ -87,45 +81,47 @@ function App() {
           )}
         </div>
         <div className="absolute bottom-10 flex flex-col items-center animate-bounce">
-          <span className="text-slate-500 text-[12px] font-black uppercase tracking-[0.4em] mb-2">
+          <span className="text-slate-400 text-[12px] font-black uppercase tracking-[0.4em] mb-2">
             Role para baixo
           </span>
-          <div className="w-px h-10 bg-blue-500/50"></div>
+          <div className="w-px h-10 bg-blue-600/30"></div>
         </div>
       </section>
 
-      <section className="relative z-20 h-screen w-full flex flex-col justify-center snap-start snap-always px-6">
-        <div className="max-w-7xl mx-auto w-full">
-          <h2 className="text-6xl md:text-[100px] font-black tracking-tighter text-white leading-[0.9] mb-8">
-            Contrate agora.
+      <section className="relative z-20 h-screen w-full flex flex-col justify-center snap-start snap-always px-6 bg-slate-50">
+        <div className="max-w-5xl mx-auto w-full">
+          <h2 className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 leading-tight mb-6">
+            Sua próxima contratação <br />
+            <span className="text-blue-600">começa aqui.</span>
           </h2>
-          <p className="text-xl md:text-3xl lg:text-4xl font-medium text-slate-400 max-w-full md:max-w-none whitespace-normal md:whitespace-nowrap leading-tight">
-            Início imediato. Acesso direto aos talentos{" "}
-            <span className="text-emerald-500 font-black italic underline decoration-blue-500/30 underline-offset-8 inline-block md:inline">
+          <p className="text-lg md:text-2xl font-normal text-slate-600 max-w-2xl leading-relaxed">
+            Conecte-se diretamente com talentos de alto nível prontos para impacto imediato. 
+            Sem burocracia, foco em quem é{" "}
+            <span className="text-blue-600 font-semibold italic underline decoration-blue-200 underline-offset-4">
               #OpenToWork
             </span>.
           </p>
         </div>        
         <div className="w-full absolute bottom-10 flex flex-col items-center animate-bounce">
-          <span className="text-slate-500 text-[12px] font-black uppercase tracking-[0.4em] mb-2">
+          <span className="text-slate-400 text-[12px] font-black uppercase tracking-[0.4em] mb-2">
             Role para buscar
           </span>
           <div className="w-px h-10 bg-blue-500/50"></div>
         </div>
       </section>
 
-      <section className="relative z-30 min-h-screen w-full snap-start px-6 pt-24">
+      <section className="relative z-30 min-h-screen w-full snap-start px-6 pt-24 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="sticky top-20 z-50 bg-[#020617]/80 backdrop-blur-xl py-8 mb-10 border-b border-white/10">
-
+          <div className="sticky top-[72px] z-50 bg-white/95 backdrop-blur-md py-6 mb-8 border-b border-slate-100">
             <PesquisaCandidato ref={inputRef} busca={busca} setBusca={setBusca} />
             
-            <div className="mt-4 flex justify-between items-center px-2">
-              <span className="text-[12px] font-black uppercase tracking-widest text-blue-500">
-                Lista de candidatos disponíveis
+            <div className="mt-6 flex justify-between items-center px-1">
+              <span className="text-xs font-bold uppercase tracking-wider text-slate-500 flex items-center gap-2">
+                <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
+                Talentos Disponíveis
               </span>
-              <span className="text-[12px] font-black uppercase tracking-widest text-slate-500">
-                {candidatosFiltrados.length} Resultado(s)
+              <span className="text-xs font-medium text-slate-400">
+                <strong className="text-slate-900">{candidatosFiltrados.length}</strong> profissionais encontrados
               </span>
             </div>
           </div>
@@ -134,15 +130,16 @@ function App() {
             <Lista candidatos={candidatosFiltrados} carregando={carregando} />
           </div>
 
-          <footer className="py-20 text-center border-t border-white/5 opacity-30">
-            <p className="text-[10px] font-black uppercase tracking-[0.5em]">
+          <footer className="py-16 text-center border-t border-slate-100">
+            <p className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-4">
               Talentos Diários • 2026
             </p>
-            <p className="text-[10px] font-black uppercase tracking-[0.5em]">
-            <b>💡 Disclaimer:</b> Este projeto é uma iniciativa de estudo e portfólio. 
-                    O cadastro e a exibição na vitrine visam complementar sua visibilidade, 
-                    não garantindo contratações ou propostas.
-            </p>
+            <div className="max-w-2xl mx-auto">
+              <p className="text-[10px] leading-relaxed text-slate-400 uppercase tracking-tighter">
+                <b>💡 Aviso:</b> Este projeto é uma vitrine de talentos para fins de estudo. 
+                A plataforma facilita a conexão, mas não intermedeia contratações.
+              </p>
+            </div>
           </footer>
         </div>
       </section>
