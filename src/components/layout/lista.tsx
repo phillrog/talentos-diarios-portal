@@ -74,11 +74,11 @@ export const Lista = ({ candidatos, carregando }: ListaProps) => {
                   Ver perfil
                 </span>
                 
-                <div className="flex items-center transition-transform duration-300 group-hover/btn:translate-x-1">
+                <div className="flex items-center transition-transform duration-300">
                   <img 
                     src={linkedinIcon} 
                     alt="LinkedIn" 
-                    className="w-5 h-5 md:w-6 md:h-6 object-contain brightness-0 invert" 
+                    className="w-14 h-7 md:w-14 md:h-7 object-contain brightness-0 invert" 
                   />
                 </div>
               </a>

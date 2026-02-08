@@ -59,7 +59,7 @@ export const Cabecalho = ({ scrolled }: CabecalhoProps) => {
           <FileDown 
             size={20} 
             strokeWidth={3} 
-            className="transition-transform duration-300 group-hover:-translate-y-1" 
+            className="transition-transform duration-300" 
           />
           
           <span className="hidden md:inline">BAIXAR LISTA PDF</span>
