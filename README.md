@@ -1,9 +1,10 @@
 🚀 Talentos Diários Portal
 ==========================
 
-<img width="1887" height="957" alt="image" src="https://github.com/user-attachments/assets/916a5ae2-efd8-48d4-849c-bb0b3f89da07" />
+![td_p2](https://github.com/user-attachments/assets/9dd00c05-1343-4664-a785-8bab1ff1eaf6)
 
-Uma plataforma de talentos **#OpenToWork**, projetada para recrutadores identificarem candidatos qualificados disponíveis no mercado. O portal é atualizado diariamente via automação, conforme cadastro feito pelos candidatos em [Registro de candidato](https://talentos-diarios.streamlit.app/).
+
+Uma plataforma de talentos **#OpenToWork**, projetada para recrutadores identificarem candidatos qualificados disponíveis no mercado. O portal é atualizado diariamente via automação, conforme cadastro feito pelos candidatos em [Registro de candidato](https://registrar-talentos-diarios.streamlit.app/).
 
 📋 O que o projeto faz?
 -----------------------
@@ -88,15 +89,6 @@ Este projeto é uma iniciativa de estudo e portfólio.
 O cadastro e a exibição na vitrine visam complementar sua visibilidade, 
 não garantindo contratações ou propostas.
 
-# Resultado
-
-<img width="1887" height="957" alt="image" src="https://github.com/user-attachments/assets/916a5ae2-efd8-48d4-849c-bb0b3f89da07" />
-
-<img width="1883" height="342" alt="image" src="https://github.com/user-attachments/assets/2a70411d-ad3b-45c4-9a73-e48149973803" />
-
-<img width="1902" height="967" alt="image" src="https://github.com/user-attachments/assets/dccf3bbc-94bc-4f91-8d40-8f4eb627a66d" />
-
-<img width="1912" height="965" alt="image" src="https://github.com/user-attachments/assets/7a3317bd-ebfe-4d9a-be7a-807e5bb0c4b8" />
 
 
 
