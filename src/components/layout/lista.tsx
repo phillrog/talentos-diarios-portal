@@ -1,4 +1,5 @@
 import type { Candidato } from "../../types/candidato";
+import linkedinIcon from "../../assets/images/linkedin.svg";
 
 interface ListaProps {
   candidatos: Candidato[];
@@ -50,8 +51,25 @@ export const Lista = ({ candidatos, carregando }: ListaProps) => {
                 </div>
               </div>
             </div>
-            <p className="text-blue-600 text-xl font-medium mb-12 flex-grow line-clamp-3 italic">"{c.cargo}"</p>
-            <a href={c.perfil_url} target="_blank" rel="noopener noreferrer" className="w-full text-center py-6 bg-slate-900 text-white font-black uppercase text-xs rounded-[1.5rem] hover:bg-blue-600 hover:text-white transition-all shadow-md">Ver Perfil LinkedIn</a>
+            <p className="text-blue-600 text-xl font-medium mb-12 flex-grow line-clamp-3 italic uppercase">"{c.cargo}"</p>
+            <a 
+                href={c.perfil_url} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="group/btn w-full flex items-center justify-center gap-3 py-5 bg-slate-900  rounded-[1.5rem] transition-all duration-300 hover:bg-[#0077b5] hover:border-slate-900 shadow-md hover:shadow-lg active:scale-[0.98]"
+              >
+                <span className="text-white font-black uppercase text-xs tracking-widest">
+                  Ver perfil
+                </span>
+                
+                <div className="flex items-center transition-transform duration-300">
+                  <img 
+                    src={linkedinIcon} 
+                    alt="LinkedIn" 
+                    className="w-16 h-8 object-contain brightness-0 invert" 
+                  />
+                </div>
+              </a>
           </div>
         </div>
       ))}

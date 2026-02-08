@@ -97,7 +97,7 @@ function App() {
           <p className="text-lg md:text-2xl font-normal text-slate-600 max-w-2xl leading-relaxed">
             Conecte-se diretamente com talentos de alto nível prontos para impacto imediato. 
             Sem burocracia, foco em quem é{" "}
-            <span className="text-blue-600 font-semibold italic underline decoration-blue-200 underline-offset-4">
+            <span className="text-green-600 font-semibold italic underline decoration-blue-200 underline-offset-4">
               #OpenToWork
             </span>.
           </p>

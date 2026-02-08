@@ -1,6 +1,7 @@
 import { candidatoService } from '../../services/candidatoService';
 import logo from '../../assets/images/logo.png';
 import TextType from '../reactbits/texttype';
+import { FileDown } from "lucide-react";
 
 interface CabecalhoProps {
   scrolled: boolean;
@@ -46,12 +47,18 @@ export const Cabecalho = ({ scrolled }: CabecalhoProps) => {
 
         <button 
           onClick={() => candidatoService.baixarPdf()}
-          className={`hidden md:flex items-center gap-3 px-10 py-4 rounded-full font-black text-xs transition-all duration-500 active:scale-95 shadow-lg ${
+          className={`hidden md:flex items-center gap-3 px-10 py-4 rounded-full font-black text-xs transition-all duration-500 active:scale-95 shadow-lg group ${
             scrolled 
-              ? "bg-slate-900 text-white hover:bg-blue-600 hover:text-white" 
-              : "bg-slate-900 text-white hover:bg-blue-600 hover:text-white"
+              ? "bg-slate-900 text-white hover:bg-[#0077b5]" 
+              : "bg-slate-900 text-white hover:bg-[#0077b5]"
           }`}
         >
+          <FileDown 
+            size={18} 
+            strokeWidth={3} 
+            className="transition-transform duration-300" 
+          />
+          
           BAIXAR LISTA PDF
         </button>
       </div>

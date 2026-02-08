@@ -1,5 +1,6 @@
 import type { Candidato } from "../../types/candidato";
 import LogoLoop from "./logoloop";
+import linkedinIcon from "../../assets/images/linkedin.svg";
 
 interface CarrosselProps {
   candidatos: Candidato[];
@@ -41,6 +42,20 @@ export const CarrosselCandidatos = ({
             <span className="text-green-400 text-[10px] font-black uppercase tracking-widest">
               Início imediato
             </span>
+          </div>
+          <div className="mt-4 flex items-center">
+            <div className="group/link flex items-center gap-2 cursor-pointer">
+              <span className="text-blue-600 text-[10px] font-black uppercase tracking-[0.2em] transition-colors group-hover/link:text-blue-400">
+                Ver perfil
+              </span>
+              <div className="flex items-center transition-transform duration-300">
+                <img 
+                  src={linkedinIcon} 
+                  alt="LinkedIn" 
+                  className="w-14 h-7 object-contain opacity-90" 
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
