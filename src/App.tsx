@@ -139,8 +139,10 @@ function App() {
             </p>
             <div className="max-w-2xl mx-auto px-4">
               <p className="text-[9px] md:text-[10px] leading-relaxed text-slate-400 uppercase tracking-tighter">
-                <b>💡 Aviso:</b> Este projeto é uma vitrine de talentos para fins de estudo. 
-                A plataforma facilita a conexão, mas não intermedeia contratações.
+                <b>💡 Aviso:</b> Este projeto é uma iniciativa de estudo e portfólio. 
+O cadastro e a exibição na vitrine visam complementar sua visibilidade, 
+não garantindo contratações ou propostas.
+
               </p>
             </div>
           </footer>
